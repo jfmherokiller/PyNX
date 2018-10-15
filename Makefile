@@ -29,7 +29,7 @@ include $(DEVKITPRO)/libnx/switch_rules
 #     - icon.jpg
 #     - <libnx folder>/default_icon.jpg
 #---------------------------------------------------------------------------------
-TARGET		:=	PyNX
+TARGET		:=	PyNX_pygame_sdl2
 BUILD		:=	build
 PY_BUILD	:=	python_build
 DIST_DIR	:=	$(BUILD)/$(TARGET)
@@ -57,7 +57,7 @@ CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions -std=gnu++11
 ASFLAGS	:=	-g $(ARCH)
 LDFLAGS	=	-specs=$(DEVKITPRO)/libnx/switch.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 
-LIBS	:= -lpython3.5 -lm -lz -lnx
+LIBS	:= -lpython3.5 -lSDL2_mixer -lSDL2_ttf -lSDL2_image -lSDL2 -lGLESv2 -lEGL -ldrm_nouveau -lglapi -lfribidi -lswscale -lavresample -lavformat -lavcodec -lavutil -lswresample -lmikmod -lmodplug -lvorbisfile -lvorbis -logg -lmpg123 -ljpeg -lpng -lvpx -lfreetype -lbz2 -lm -lz -lnx
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
