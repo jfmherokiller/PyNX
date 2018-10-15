@@ -1,0 +1,23 @@
+__cwrap_pygame_sdl2_rect __cwrap_pygame_sdl2_rect.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2
+__cwrap_pygame_sdl2_rwobject __cwrap_pygame_sdl2_rwobject.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2
+__cwrap_pygame_sdl2_controller __cwrap_pygame_sdl2_controller.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2
+__cwrap_pygame_sdl2_joystick __cwrap_pygame_sdl2_joystick.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2
+__cwrap_pygame_sdl2_color __cwrap_pygame_sdl2_color.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2
+__cwrap_pygame_sdl2_power __cwrap_pygame_sdl2_power.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2
+__cwrap_pygame_sdl2_pygame_time __cwrap_pygame_sdl2_pygame_time.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2
+__cwrap_pygame_sdl2_error __cwrap_pygame_sdl2_error.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2
+__cwrap_pygame_sdl2_mouse __cwrap_pygame_sdl2_mouse.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2
+__cwrap_pygame_sdl2_scrap __cwrap_pygame_sdl2_scrap.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2
+__cwrap_pygame_sdl2_surface __cwrap_pygame_sdl2_surface.c alphablit.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2
+__cwrap_pygame_sdl2_draw __cwrap_pygame_sdl2_draw.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2
+__cwrap_pygame_sdl2_display __cwrap_pygame_sdl2_display.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2
+__cwrap_pygame_sdl2_key __cwrap_pygame_sdl2_key.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2
+__cwrap_pygame_sdl2_mixer_music __cwrap_pygame_sdl2_mixer_music.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2_mixer -lSDL2
+__cwrap_pygame_sdl2_event __cwrap_pygame_sdl2_event.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2
+__cwrap_pygame_sdl2_transform __cwrap_pygame_sdl2_transform.c SDL2_rotozoom.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2
+__cwrap_pygame_sdl2_mixer __cwrap_pygame_sdl2_mixer.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2_mixer -lSDL2
+__cwrap_pygame_sdl2_gfxdraw __cwrap_pygame_sdl2_gfxdraw.c SDL_gfxPrimitives.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2
+__cwrap_pygame_sdl2_image __cwrap_pygame_sdl2_image.c write_jpeg.c write_png.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2_image -ljpeg -lpng -lSDL2
+__cwrap_pygame_sdl2_font __cwrap_pygame_sdl2_font.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2_ttf -lSDL2
+__cwrap_pygame_sdl2_locals __cwrap_pygame_sdl2_locals.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2
+__cwrap_pygame_sdl2_render __cwrap_pygame_sdl2_render.c -I. -Isrc -I/opt/devkitpro/portlibs/switch/include/SDL2 -lSDL2_image -lSDL2
