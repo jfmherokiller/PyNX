@@ -1,0 +1,27 @@
+pkgname=switch-liblame
+pkgver=3.100
+pkgrel=1
+pkgdesc='mp3 encoding/decoding framework'
+arch=('any')
+url='https://sourceforge.net/projects/lame'
+license=(https://sourceforge.net/projects/lame)
+options=(!strip libtool staticlibs)
+source=("https://downloads.sourceforge.net/lame/lame-$pkgver.tar.gz")
+sha256sums=('ddfe36cab873794038ae2c1210557ad34857a4b6bdc515785d1da9e175b1da1e')
+makedepends=('switch-pkg-config' 'devkitpro-pkgbuild-helpers')
+
+build() {
+	source /opt/devkitpro/devkita64.sh
+	source /opt/devkitpro/switchvars.sh
+	cd lame-$pkgver
+	CC="aarch64-none-elf-gcc" ./configure \
+		--host="aarch64-none-elf" --prefix="${PORTLIBS_PREFIX}" \
+		--disable-shared --enable-static
+
+	make
+}
+
+package() {
+	cd lame-$pkgver
+	make DESTDIR="$pkgdir/" install
+}

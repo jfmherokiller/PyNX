@@ -1,0 +1,30 @@
+pkgname=switch-libvpx
+pkgver=1.7.0
+pkgrel=1
+pkgdesc='webm encoding/decoding framework'
+arch=('any')
+url='https://www.webmproject.org/'
+license=(https://www.webmproject.org/license/)
+options=(!strip libtool staticlibs)
+source=("https://chromium.googlesource.com/webm/libvpx/+archive/v$pkgver.tar.gz")
+sha256sums=('5064d7c4f7ca15e91fb6a9de8a783b591e4c7fd816160dc82961f7e38d37dcfe')
+makedepends=('switch-pkg-config' 'devkitpro-pkgbuild-helpers')
+
+build() {
+
+  source /opt/devkitpro/devkita64.sh
+  source /opt/devkitpro/switchvars.sh
+
+CROSS="aarch64-none-elf-"  ./configure \
+    --prefix="${PORTLIBS_PREFIX}" \
+    --target=generic-gnu --cpu=cortex-a57 \
+    --disable-shared --enable-static --disable-examples --disable-multithread \
+    --enable-pic --disable-docs --disable-tools --disable-optimizations
+
+  make
+}
+
+package() {
+
+    make DESTDIR="$pkgdir/" install
+}
