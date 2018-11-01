@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 		printf("Error: could not open " MAINPY "\n");
 	} else {
 		/* execute main.py */
-		PyRun_SimpleFile(mainpy,0);
+		PyRun_SimpleFile(mainpy,MAINPY);
 	}
 
 	Py_DECREF(path); /* are these decrefs needed? Are they in the right place? */
