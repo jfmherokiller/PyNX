@@ -48,6 +48,7 @@ def _addfont(name, bold, italic, font, fontdict):
     if name not in fontdict:
         fontdict[name] = {}
     fontdict[name][bold, italic] = font
+    return fontdict
 
 
 #read the fonts on windows
@@ -556,18 +557,13 @@ def initsysfonts_darwin():
 #fonts are named as <FileName>_<Style>.<ext>
 def initsysfonts_switch():
     fonts = {}
-    onlyfiles = [
-        f for f in os.listdir("/switch/PyNX_pygame_sdl2/fonts") if os.path.isfile(os.path.join("/switch/PyNX_pygame_sdl2/fonts", f))
-    ]
-    for line in onlyfiles:
-        filename, style = line.split('_')
-        if line[-4:].lower() in ['.ttf', '.ttc', '.otf']:
-            bold = style.find('Bold') >= 0
-            italic = style.find('Italic') >= 0
-            oblique = style.find('Oblique') >= 0
-            _addfont(
-                _simplename(filename), bold, italic or oblique, line,
-                fonts)
+    for file in os.listdir("/switch/PyNX_pygame_sdl2/fonts"):
+        realfile = "/switch/PyNX_pygame_sdl2/fonts/" + file
+        if realfile[-4:].lower() in ['.ttf', '.ttc', '.otf']:
+            bold = realfile.find('Bold') >= 0
+            italic = realfile.find('Italic') >= 0
+            oblique = realfile.find('Oblique') >= 0
+            fonts = _addfont(_simplename(file.split("_")[0]), bold, italic or oblique, realfile,fonts)
     return fonts
 
 
