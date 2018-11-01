@@ -57,7 +57,7 @@ CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions -std=gnu++11
 ASFLAGS	:=	-g $(ARCH)
 LDFLAGS	=	-specs=$(DEVKITPRO)/libnx/switch.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
 
-LIBS	:= -lpython3.5 -lSDL2_mixer -lSDL2_ttf -lSDL2_image -lSDL2 -lGLESv2 -lEGL -ldrm_nouveau -lglapi -lfribidi -lswscale -lavresample -lavformat -lavcodec -lavutil -lswresample -lmikmod -lmodplug -lvorbisfile -lvorbis -logg -lmpg123 -lturbojpeg -lpng -lvpx -lfreetype -lbz2 -lm -lz -lnx
+LIBS	:= -lpython3.5 -lSDL2_mixer -lSDL2_ttf -lSDL2_image -lSDL2 -lGLESv2 -lEGL -ldrm_nouveau -lglapi -lfribidi -lswscale -lavresample -lavformat -lavcodec -lavutil -lswresample -lmikmod -lmodplug -lvorbisfile -lvorbis -logg -lmpg123 -lturbojpeg -lpng -ltheora -lvorbis -lvorbisenc -lvpx -lfreetype -lbz2 -lm -lz -lssl -lcrypto -lnx
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
