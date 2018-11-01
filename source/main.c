@@ -7,6 +7,7 @@
 
 int main(int argc, char *argv[])
 {
+	wchar_t *program = Py_DecodeLocale(argv[0], NULL);
 	gfxInitDefault();
 	consoleInit(NULL);
 	consoleDebugInit(debugDevice_CONSOLE);
@@ -29,7 +30,7 @@ int main(int argc, char *argv[])
 	/* Strip the leading sdmc: to workaround a bug somewhere... */
 	char *stripped_cwd = strchr(cwd, '/');
 	if (stripped_cwd == NULL) stripped_cwd = cwd;
-
+	Py_SetProgramName(program);
 	Py_SetPythonHome(Py_DecodeLocale(stripped_cwd, NULL));
 
 	Py_Initialize();
