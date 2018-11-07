@@ -9,7 +9,7 @@ from imgui.integrations.nx import NXRenderer
 from nx.utils import clear_terminal, Terminal
 import traceback
 
-sys.argv = [""]  # workaround needed for runpy
+#sys.argv = [""]  # workaround needed for runpy
 
 def colorToFloat(t):
     nt = ()

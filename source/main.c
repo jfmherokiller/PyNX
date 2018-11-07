@@ -8,6 +8,26 @@
 int main(int argc, char *argv[])
 {
 	wchar_t *program = Py_DecodeLocale(argv[0], NULL);
+	wchar_t **argv_copy = (wchar_t **)PyMem_RawMalloc(sizeof(wchar_t*) * (argc+1));
+	for (int i = 0; i < argc; i++) {
+        argv_copy[i] = Py_DecodeLocale(argv[i], NULL);
+        if (!argv_copy[i]) {
+            fprintf(stderr, "Fatal Python error: "
+                            "unable to decode the command line argument #%i\n",
+                            i + 1);
+            return 1;
+        }
+    }
+    argv_copy[argc] = NULL;
+	Py_SetProgramName(program);
+		/* Calculate absolute home dir */
+	char cwd[PATH_MAX];
+	getcwd(cwd, sizeof(cwd));
+	/* Strip the leading sdmc: to workaround a bug somewhere... */
+	char *stripped_cwd = strchr(cwd, '/');
+	if (stripped_cwd == NULL) stripped_cwd = cwd;
+	Py_SetPythonHome(Py_DecodeLocale(stripped_cwd, NULL));
+	
 	gfxInitDefault();
 	consoleInit(NULL);
 	consoleDebugInit(debugDevice_CONSOLE);
@@ -24,16 +44,9 @@ int main(int argc, char *argv[])
 	Py_NoUserSiteDirectory = 1;
 	//Py_VerboseFlag += 1;
 
-	/* Calculate absolute home dir */
-	char cwd[PATH_MAX];
-	getcwd(cwd, sizeof(cwd));
-	/* Strip the leading sdmc: to workaround a bug somewhere... */
-	char *stripped_cwd = strchr(cwd, '/');
-	if (stripped_cwd == NULL) stripped_cwd = cwd;
-	Py_SetProgramName(program);
-	Py_SetPythonHome(Py_DecodeLocale(stripped_cwd, NULL));
 
 	Py_Initialize();
+	PySys_SetArgv(argc, argv_copy);
 
 	/* Print some info */
 	printf("Python %s on %s\n", Py_GetVersion(), Py_GetPlatform());
