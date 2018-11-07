@@ -715,7 +715,7 @@
 /* #define HAVE_READV 1 */ // original: #define HAVE_READV 1
 
 /* Define to 1 if you have the `realpath' function. */
-#define HAVE_REALPATH 1
+//#define HAVE_REALPATH
 
 /* Define to 1 if you have the `renameat' function. */
 /* #define HAVE_RENAMEAT 1 */ // original: #define HAVE_RENAMEAT 1
