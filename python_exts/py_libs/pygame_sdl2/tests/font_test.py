@@ -8,7 +8,7 @@ from pygame_sdl2.controller import Controller, get_string_for_axis, get_string_f
 
 pygame.init()
 fonts = pygame_font.get_fonts()
-fontpath = pygame_font.match_font(fonts[0], 0, 0)
+fontpath = pygame_font.match_font(pygame_font.get_default_font(), 0, 0)
 font = pygame_font.Font(fontpath, 36)
 
 screen = pygame.display.set_mode((1280, 720))
